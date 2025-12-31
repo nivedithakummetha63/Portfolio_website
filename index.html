@@ -383,35 +383,35 @@
         display: inline-flex;
       }
     }
-    .cp-grid {
+    /* === Competitive Programming FIX === */
+
+.cp-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+  gap: 1rem;
   width: 100%;
   max-width: 100%;
+  margin: 1rem auto;
+  padding: 0 1rem;
   box-sizing: border-box;
-  padding: 0 0.5rem;
 }
 
 .cp-card {
-  width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.cp-card * {
   max-width: 100%;
   box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 .cp-card img {
-  max-width: 100%;
+  max-width: 40px;
   height: auto;
-}
-
-/* Responsive fix */
-@media (max-width: 900px) {
-  .cp-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .cp-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 
@@ -504,10 +504,7 @@
     Competitive Programming
   </h3>
 
-  <div
-    class="cp-grid"
-    style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; max-width:700px; margin:1rem auto;"
-  >
+  <div class="cp-grid">
 
     <div
       class="cp-card"
