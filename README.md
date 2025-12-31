@@ -42,13 +42,6 @@ It highlights my projects, certifications, competitive programming presence, and
 - 🏅 Certifications  
 - 📬 Contact  
 
-## 🌍 Live Demo
-
-🔗 **Portfolio Website:**  
-👉 https://kummethaniveditha-portfolio.onrender.com/
-
----
-
 ## 📜 License
 
 This project is open for learning and inspiration.  
