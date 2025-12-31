@@ -383,7 +383,20 @@
         display: inline-flex;
       }
     }
-    /* === Competitive Programming FIX === */
+    @media (max-width: 768px) {
+  .dropdown-content {
+    position: static;
+    display: none;
+    width: 100%;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .dropdown.open .dropdown-content {
+    display: block;
+  }
+}
+
 
 .cp-grid {
   display: grid !important;
@@ -445,7 +458,8 @@
     <li><a href="#projects">Projects</a></li>
     <li><a href="#resume">Resume</a></li>
     <li class="dropdown">
-      <a href="#">Others ▾</a>
+      <a href="javascript:void(0)" class="dropdown-toggle">Others ▾</a>
+
       <div class="dropdown-content">
         <a href="#extracurricular">Extra Curricular</a>
         <a href="#certifications">Certifications</a>
@@ -1251,13 +1265,25 @@
     document.querySelector('.hamburger').classList.toggle('active');
   }
 
-  document.querySelectorAll('#nav-links a').forEach(link => {
+  /* Close menu ONLY for normal nav links (not Others) */
+  document.querySelectorAll('#nav-links a:not(.dropdown-toggle)').forEach(link => {
     link.addEventListener('click', () => {
       document.getElementById('nav-links').classList.remove('active');
       document.querySelector('.hamburger').classList.remove('active');
     });
   });
 
+  /* Mobile dropdown toggle for "Others" */
+  const dropdownToggle = document.querySelector('.dropdown-toggle');
+  if (dropdownToggle) {
+    dropdownToggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.parentElement.classList.toggle('open');
+    });
+  }
+
+  /* Fade-in animation */
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1268,6 +1294,7 @@
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+  /* Scroll-to-top button */
   const scrollBtn = document.getElementById('scrollTop');
 
   window.addEventListener('scroll', () => {
@@ -1278,6 +1305,7 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+  /* Project card 3D hover */
   document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const r = card.getBoundingClientRect();
