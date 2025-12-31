@@ -383,16 +383,32 @@
         display: inline-flex;
       }
     }
-    #about {
-  overflow: hidden;
+    .cp-grid {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 0.5rem;
 }
 
-.cp-grid {
+.cp-card {
+  width: 100%;
   max-width: 100%;
   box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
+.cp-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive fix */
+@media (max-width: 900px) {
+  .cp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
   .cp-grid {
     grid-template-columns: 1fr;
   }
