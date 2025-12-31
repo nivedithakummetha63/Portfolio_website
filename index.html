@@ -4,132 +4,412 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kummetha Niveditha — Portfolio</title>
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
   <style>
-    :root{--bg1:#0b0c1a;--bg2:#001f3f;--accent:#00ffff;--muted:#e0e0f1}
+    :root {
+      --bg1: #0b0c1a;
+      --bg2: #001f3f;
+      --accent: #00ffff;
+      --muted: #e0e0f1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+      color: var(--muted);
+      min-height: 100vh;
+    }
+
+    nav {
+      background: rgba(0, 31, 63, 0.95);
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.12);
+    }
+
+    #nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.25rem;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    #nav-links li {
+      position: relative;
+    }
+
+    #nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem;
+      display: inline-block;
+    }
+
+    #nav-links a:hover {
+      color: var(--accent);
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.12);
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #0f1a36;
+      min-width: 200px;
+      top: 2.5rem;
+      z-index: 2;
+      border-radius: 8px;
+      box-shadow: 0 6px 24px rgba(0, 255, 255, 0.06);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.6rem 1rem;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .icon-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 0.4rem 0.6rem;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .icon-btn:hover {
+      border-color: rgba(0, 255, 255, 0.2);
+      box-shadow: 0 6px 20px rgba(0, 255, 255, 0.06);
+    }
+
     .social-row .icon-btn i {
-  color: #00ffff; /* your cool accent color */
-  transition: color 0.3s ease;
-}
+      color: #00ffff;
+      transition: color 0.3s ease;
+    }
 
-.social-row .icon-btn:hover i {
-  color: #ffb347; /* maybe a warm hover glow */
-}
+    .social-row .icon-btn:hover i {
+      color: #ffb347;
+    }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:'Poppins',sans-serif;background:linear-gradient(135deg,var(--bg1) 0%,var(--bg2) 100%);color:var(--muted);min-height:100vh}
-    nav{background:rgba(0,31,63,0.95);display:flex;justify-content:space-between;padding:1rem 2rem;align-items:center;position:sticky;top:0;z-index:1000;box-shadow:0 6px 20px rgba(0,0,0,0.6);flex-wrap:wrap}
-    .logo{font-size:1.5rem;font-weight:800;color:var(--accent);text-shadow:0 0 8px rgba(0,255,255,0.12)}
-    #nav-links{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0;align-items:center}
-    #nav-links li{position:relative}
-    #nav-links a{color:var(--muted);text-decoration:none;font-weight:600;padding:0.5rem;display:inline-block}
-    #nav-links a:hover{color:var(--accent);text-shadow:0 0 8px rgba(0,255,255,0.12)}
-    .dropdown-content{display:none;position:absolute;background:#0f1a36;min-width:200px;top:2.5rem;z-index:2;border-radius:8px;box-shadow:0 6px 24px rgba(0,255,255,0.06)}
-    .dropdown-content a{display:block;padding:0.6rem 1rem}
-    .dropdown:hover .dropdown-content{display:block}
-    .social-row{display:flex;gap:0.6rem;align-items:center}
-    .icon-btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:0.4rem 0.6rem;border-radius:8px;display:inline-flex;align-items:center;gap:0.5rem}
-    .icon-btn:hover{border-color:rgba(0,255,255,0.2);box-shadow:0 6px 20px rgba(0,255,255,0.06)}
-    section{max-width:1100px;margin:2rem auto;padding:3rem 2rem;border-radius:14px;background:linear-gradient(180deg,rgba(19,28,61,0.75),rgba(12,18,38,0.65));backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(0,0,0,0.6);transition:transform .36s ease,box-shadow .36s ease}
-    section:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,255,255,0.04)}
-    h2{color:var(--accent);text-align:center;margin:0 0 1rem 0;text-shadow:0 0 8px rgba(0,255,255,0.08)}
-    .frame{text-align:center}
+    section {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 3rem 2rem;
+      border-radius: 14px;
+      background: linear-gradient(
+        180deg,
+        rgba(19, 28, 61, 0.75),
+        rgba(12, 18, 38, 0.65)
+      );
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      transition: transform 0.36s ease, box-shadow 0.36s ease;
+    }
+
+    section:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0, 255, 255, 0.04);
+    }
+
+    h2 {
+      color: var(--accent);
+      text-align: center;
+      margin: 0 0 1rem 0;
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.08);
+    }
+
+    .frame {
+      text-align: center;
+    }
+
     @keyframes pulse-border {
-  0%, 100% {
-    border-color: rgba(0, 255, 255, 0.4);
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-  }
-  50% {
-    border-color: #00ffff;
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.9);
-  }
-}
+      0%, 100% {
+        border-color: rgba(0, 255, 255, 0.4);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+      }
+      50% {
+        border-color: #00ffff;
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.9);
+      }
+    }
 
-.avatar {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid rgba(0, 255, 255, 0.4);
-  animation: pulse-border 3s ease-in-out infinite;
-}
-.intro{margin-top:1rem;color:#dfe8ff}
-    .intro small{display:block;color:#bfc9e8;margin-top:0.35rem}
-    .skills-list{display:flex;gap:0.8rem;list-style:none;padding:1rem 0;margin:0;flex-wrap:wrap;justify-content:center}
-    .skills-list li{padding:.65rem 1rem;border-radius:999px;font-weight:700;color:#fff;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,0.45);transition:transform .25s ease,box-shadow .25s ease}
-    .skills-list li:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,255,255,0.06)}
-    .card-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-top:1rem}
-    .card{background:linear-gradient(180deg,rgba(10,16,36,0.75),rgba(12,18,38,0.6));padding:1.25rem;border-radius:12px;position:relative;overflow:hidden;min-height:140px;display:flex;flex-direction:column;justify-content:space-between}
-    .card h3{color:var(--accent);margin:0 0 .5rem 0}
-    .card p{color:#cfd8ff;margin:0;font-size:.95rem}
-    .card .meta{margin-top:1rem;display:flex;gap:.6rem;align-items:center}
-    .btn{background:var(--accent);color:#002;display:inline-block;padding:.6rem .9rem;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 8px 30px rgba(0,255,255,0.08)}
-    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(0,255,255,0.08)}
-    .contact-form{display:flex;flex-direction:column;gap:0.9rem}
-    .contact-form input,.contact-form textarea{padding:.75rem;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:rgba(6,10,24,0.45);color:var(--muted);resize:vertical}
-    .contact-form button{padding:.8rem;border-radius:10px;border:none;background:var(--accent);font-weight:800;cursor:pointer}
-    footer{background:rgba(0,0,0,0.35);color:#dfe8ff;padding:40px 20px;margin-top:2rem}
-    .footer-grid{max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between}
-    .footer-grid div{min-width:220px;flex:1}
-    .muted{color:#b8c3e6}
+    .avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(0, 255, 255, 0.4);
+      animation: pulse-border 3s ease-in-out infinite;
+    }
+
+    .intro {
+      margin-top: 1rem;
+      color: #dfe8ff;
+    }
+
+    .intro small {
+      display: block;
+      color: #bfc9e8;
+      margin-top: 0.35rem;
+    }
+
+    .skills-list {
+      display: flex;
+      gap: 0.8rem;
+      list-style: none;
+      padding: 1rem 0;
+      margin: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .skills-list li {
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .skills-list li:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0, 255, 255, 0.06);
+    }
+
+    .card-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: linear-gradient(
+        180deg,
+        rgba(10, 16, 36, 0.75),
+        rgba(12, 18, 38, 0.6)
+      );
+      padding: 1.25rem;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      min-height: 140px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h3 {
+      color: var(--accent);
+      margin: 0 0 0.5rem 0;
+    }
+
+    .card p {
+      color: #cfd8ff;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .card .meta {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #002;
+      display: inline-block;
+      padding: 0.6rem 0.9rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 8px 30px rgba(0, 255, 255, 0.08);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid rgba(0, 255, 255, 0.08);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(6, 10, 24, 0.45);
+      color: var(--muted);
+      resize: vertical;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.35);
+      color: #dfe8ff;
+      padding: 40px 20px;
+      margin-top: 2rem;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: space-between;
+    }
+
+    .footer-grid div {
+      min-width: 220px;
+      flex: 1;
+    }
+
+    .muted {
+      color: #b8c3e6;
+    }
+
     #scrollTop {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-  background: #00ffff;
-  color: #111;
-  border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  font-size: 1.4rem;
-  font-weight: bold;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
-  cursor: pointer;
-  display: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      background: #00ffff;
+      color: #111;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+      cursor: pointer;
+      display: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-#scrollTop:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 16px rgba(0, 255, 255, 0.8);
-}
+    #scrollTop:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 16px rgba(0, 255, 255, 0.8);
+    }
 
-/* Mobile-specific styles */
-@media (max-width: 600px) {
-  #scrollTop {
-    bottom: 16px;
-    right: 16px;
-    width: 42px;
-    height: 42px;
-    font-size: 1.2rem;
-  }
-}
+    @media (max-width: 600px) {
+      #scrollTop {
+        bottom: 16px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+      }
+    }
 
-    .hamburger{display:none;font-size:1.8rem;background:transparent;border:none;color:var(--muted);cursor:pointer}
-    @media(max-width:880px){section{margin:1rem}} 
-    @media(max-width:768px){#nav-links{display:none;flex-direction:column;gap:.6rem;width:100%;padding:1rem;border-radius:8px;margin-top:10px}#nav-links.active{display:flex}.hamburger{display:inline-flex}}
-    .fade-in{opacity:0;transform:translateY(20px);transition:all .7s cubic-bezier(.2,.9,.2,1)}
-    .fade-in.show{opacity:1;transform:translateY(0)}
-    .project-card{transition:transform .18s ease,box-shadow .18s ease}
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    @media (max-width: 880px) {
+      section {
+        margin: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0.6rem;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+
+      #nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: inline-flex;
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.7s cubic-bezier(0.2, 0.9, 0.2, 1);
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-card {
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
   </style>
+
 </head>
 <body>
+
 <nav>
   <div class="logo">KN</div>
   <button class="hamburger" aria-label="open menu" onclick="toggleMenu()">☰</button>
   <ul id="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href ="#education">Education</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#resume">Resume</a></li>
@@ -145,18 +425,34 @@
 </nav>
 
 <section id="home" class="frame fade-in">
-    <img class="avatar" src="https://i.ibb.co/nNZn5PFL/IMG-20240323-144345-1.jpg" alt="Kummetha  Niveditha avatar" />
-  <h1 style="margin-top:1rem;color:var(--accent)">Kummetha   Niveditha</h1>
+  <img
+    class="avatar"
+    src="https://i.ibb.co/nNZn5PFL/IMG-20240323-144345-1.jpg"
+    alt="Kummetha Niveditha avatar"
+  />
+  <h1 style="margin-top:1rem;color:var(--accent)">Kummetha Niveditha</h1>
   <p class="intro">CS undergrad | ServiceNow & Salesforce certified | Full Stack Developer</p>
-<div class="social-row" style="justify-content:center; margin-top: 1rem;">
-  <a class="icon-btn" href="https://www.linkedin.com/in/niveditha563" aria-label="LinkedIn Profile" target="_blank" rel="noreferrer noopener">
-    <i class="fab fa-linkedin"></i>
-  </a>
-  <a class="icon-btn" href="https://github.com/nivedithakummetha63" aria-label="GitHub Profile" target="_blank" rel="noreferrer noopener">
-    <i class="fab fa-github"></i>
-  </a>
-</div>
 
+  <div class="social-row" style="justify-content:center; margin-top:1rem;">
+    <a
+      class="icon-btn"
+      href="https://www.linkedin.com/in/niveditha563"
+      aria-label="LinkedIn Profile"
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      <i class="fab fa-linkedin"></i>
+    </a>
+    <a
+      class="icon-btn"
+      href="https://github.com/nivedithakummetha63"
+      aria-label="GitHub Profile"
+      target="_blank"
+      rel="noreferrer noopener"
+    >
+      <i class="fab fa-github"></i>
+    </a>
+  </div>
 
   <div style="margin-top:1rem;display:flex;gap:10px;justify-content:center">
     <a class="btn" href="#projects">See Projects</a>
@@ -164,51 +460,122 @@
   </div>
 </section>
 
-
-
 <section id="about" class="fade-in">
   <h2>About Me</h2>
   <p style="line-height:1.6;color:#dfe8ff">
-    Hey, I’m Kummetha Niveditha — a passionate CSE undergrad who loves building tech that makes a difference. I’m certified in ServiceNow (CSA & CAD) and Salesforce Agentforce, with a knack for creating smart workflows and diving into full-stack development. Skilled in Python, Java, and web tech, I’m all about turning ideas into real, scalable solutions.
+    Hey, I’m Kummetha Niveditha — a passionate CSE undergrad who loves building tech that makes a difference.
+    I’m certified in ServiceNow (CSA & CAD) and Salesforce Agentforce, with a knack for creating smart workflows
+    and diving into full-stack development. Skilled in Python, Java, and web tech, I’m all about turning ideas
+    into real, scalable solutions.
   </p>
 
-  <h3 style="color: var(--accent); margin-top: 2rem; text-align:center;">Competitive Programming</h3>
+  <h3 style="color:var(--accent); margin-top:2rem; text-align:center;">
+    Competitive Programming
+  </h3>
 
-  <div class="cp-grid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; max-width: 700px; margin: 1rem auto;">
+  <div
+    class="cp-grid"
+    style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; max-width:700px; margin:1rem auto;"
+  >
 
-    <!-- LeetCode Card -->
-    <div class="cp-card" style="background: rgba(0, 255, 255, 0.1); border: 2px solid var(--accent); border-radius: 12px; padding: 0.6rem 0.8rem; box-shadow: 0 3px 8px rgba(0, 255, 255, 0.1); text-align:center; color: var(--muted); transition: transform 0.3s ease, box-shadow 0.3s ease; font-size: 0.75rem;">
-      <div style="width: 48px; height: 48px; margin: 0 auto 0.5rem auto; border-radius: 50%; background: rgba(0,255,255,0.15); display: flex; justify-content: center; align-items: center; box-shadow: 0 0 6px rgba(0,255,255,0.25);">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png" alt="LeetCode Logo" style="width: 30px; height: 30px; object-fit: contain;" />
+    <div
+      class="cp-card"
+      style="background:rgba(0,255,255,0.1); border:2px solid var(--accent); border-radius:12px;
+             padding:0.6rem 0.8rem; box-shadow:0 3px 8px rgba(0,255,255,0.1);
+             text-align:center; color:var(--muted); transition:transform 0.3s ease, box-shadow 0.3s ease;
+             font-size:0.75rem;"
+    >
+      <div
+        style="width:48px; height:48px; margin:0 auto 0.5rem; border-radius:50%;
+               background:rgba(0,255,255,0.15); display:flex; justify-content:center; align-items:center;
+               box-shadow:0 0 6px rgba(0,255,255,0.25);"
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png"
+          alt="LeetCode Logo"
+          style="width:30px; height:30px; object-fit:contain;"
+        />
       </div>
-      <h4 style="color: var(--accent); margin-bottom: 0.1rem; font-size: 0.95rem;">LeetCode</h4>
-      <a href="https://leetcode.com/u/Niveditha563/" target="_blank" rel="noopener noreferrer" style="color:#00ffff; font-weight:600; text-decoration:none; word-break: break-word; font-size: 0.8rem;">Niveditha563</a>
-      <p style="font-weight:700; margin-top:0.2rem; color:#d0f0ff; font-size: 0.75rem;">100+ Problems solved</p>
+      <h4 style="color:var(--accent); margin-bottom:0.1rem; font-size:0.95rem;">LeetCode</h4>
+      <a
+        href="https://leetcode.com/u/Niveditha563/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="color:#00ffff; font-weight:600; text-decoration:none; font-size:0.8rem;"
+      >
+        Niveditha563
+      </a>
+      <p style="font-weight:700; margin-top:0.2rem; color:#d0f0ff; font-size:0.75rem;">
+        100+ Problems solved
+      </p>
     </div>
 
-    <!-- CodeChef Card -->
-    <div class="cp-card" style="background: rgba(0, 255, 255, 0.1); border: 2px solid var(--accent); border-radius: 12px; padding: 0.6rem 0.8rem; box-shadow: 0 3px 8px rgba(0, 255, 255, 0.1); text-align:center; color: var(--muted); transition: transform 0.3s ease, box-shadow 0.3s ease; font-size: 0.75rem;">
-      <div style="width: 48px; height: 48px; margin: 0 auto 0.5rem auto; border-radius: 50%; background: rgba(0,255,255,0.15); display: flex; justify-content: center; align-items: center; box-shadow: 0 0 6px rgba(0,255,255,0.25);">
-        <img src="https://img.icons8.com/ios7/200/228BE6/codechef.png" alt="CodeChef Logo" style="width: 30px; height: 30px; object-fit: contain;" />
+    <div
+      class="cp-card"
+      style="background:rgba(0,255,255,0.1); border:2px solid var(--accent); border-radius:12px;
+             padding:0.6rem 0.8rem; box-shadow:0 3px 8px rgba(0,255,255,0.1);
+             text-align:center; color:var(--muted); transition:transform 0.3s ease, box-shadow 0.3s ease;
+             font-size:0.75rem;"
+    >
+      <div
+        style="width:48px; height:48px; margin:0 auto 0.5rem; border-radius:50%;
+               background:rgba(0,255,255,0.15); display:flex; justify-content:center; align-items:center;
+               box-shadow:0 0 6px rgba(0,255,255,0.25);"
+      >
+        <img
+          src="https://img.icons8.com/ios7/200/228BE6/codechef.png"
+          alt="CodeChef Logo"
+          style="width:30px; height:30px; object-fit:contain;"
+        />
       </div>
-      <h4 style="color: var(--accent); margin-bottom: 0.1rem; font-size: 0.95rem;">CodeChef</h4>
-      <a href="https://www.codechef.com/users/k_niveditha_5" target="_blank" rel="noopener noreferrer" style="color:#00ffff; font-weight:600; text-decoration:none; word-break: break-word; font-size: 0.8rem;">k_niveditha_5</a>
-      <p style="font-weight:700; margin-top:0.2rem; color:#d0f0ff; font-size: 0.75rem;">150+ Problems solved</p>
+      <h4 style="color:var(--accent); margin-bottom:0.1rem; font-size:0.95rem;">CodeChef</h4>
+      <a
+        href="https://www.codechef.com/users/k_niveditha_5"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="color:#00ffff; font-weight:600; text-decoration:none; font-size:0.8rem;"
+      >
+        k_niveditha_5
+      </a>
+      <p style="font-weight:700; margin-top:0.2rem; color:#d0f0ff; font-size:0.75rem;">
+        150+ Problems solved
+      </p>
     </div>
 
-    <!-- HackerRank Card -->
-    <div class="cp-card" style="background: rgba(0, 255, 255, 0.1); border: 2px solid var(--accent); border-radius: 12px; padding: 0.6rem 0.8rem; box-shadow: 0 3px 8px rgba(0, 255, 255, 0.1); text-align:center; color: var(--muted); transition: transform 0.3s ease, box-shadow 0.3s ease; font-size: 0.75rem;">
-      <div style="width: 48px; height: 48px; margin: 0 auto 0.5rem auto; border-radius: 50%; background: rgba(0,255,255,0.15); display: flex; justify-content: center; align-items: center; box-shadow: 0 0 6px rgba(0,255,255,0.25);">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png" alt="HackerRank Logo" style="width: 30px; height: 30px; object-fit: contain;" />
+    <div
+      class="cp-card"
+      style="background:rgba(0,255,255,0.1); border:2px solid var(--accent); border-radius:12px;
+             padding:0.6rem 0.8rem; box-shadow:0 3px 8px rgba(0,255,255,0.1);
+             text-align:center; color:var(--muted); transition:transform 0.3s ease, box-shadow 0.3s ease;
+             font-size:0.75rem;"
+    >
+      <div
+        style="width:48px; height:48px; margin:0 auto 0.5rem; border-radius:50%;
+               background:rgba(0,255,255,0.15); display:flex; justify-content:center; align-items:center;
+               box-shadow:0 0 6px rgba(0,255,255,0.25);"
+      >
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/6/65/HackerRank_logo.png"
+          alt="HackerRank Logo"
+          style="width:30px; height:30px; object-fit:contain;"
+        />
       </div>
-      <h4 style="color: var(--accent); margin-bottom: 0.1rem; font-size: 0.95rem;">HackerRank</h4>
-      <a href="https://www.hackerrank.com/profile/224g1a0563" target="_blank" rel="noopener noreferrer" style="color:#00ffff; font-weight:600; text-decoration:none; word-break: break-word; font-size: 0.8rem;">224g1a0563</a>
-      <p style="font-weight:700; margin-top:0.2rem; color:#d0f0ff; font-size: 0.75rem;">100+ Problems solved</p>
+      <h4 style="color:var(--accent); margin-bottom:0.1rem; font-size:0.95rem;">HackerRank</h4>
+      <a
+        href="https://www.hackerrank.com/profile/224g1a0563"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="color:#00ffff; font-weight:600; text-decoration:none; font-size:0.8rem;"
+      >
+        224g1a0563
+      </a>
+      <p style="font-weight:700; margin-top:0.2rem; color:#d0f0ff; font-size:0.75rem;">
+        100+ Problems solved
+      </p>
     </div>
 
   </div>
 </section>
-
 
 
 <style>
@@ -226,142 +593,140 @@
     text-align: center;
     padding-top: 45px;
     font-weight: 800;
-    font-size: 1 rem;
-    color: #00ffff; 
+    font-size: 1rem;
+    color: #00ffff;
     margin-top: 2rem;
-    margin-bottom: 3rem; 
+    margin-bottom: 3rem;
     letter-spacing: 1.2px;
   }
 
-  /* Vertical timeline line */
   #education .timeline-line {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 40px;
     width: 4px;
-    background: linear-gradient(180deg, #00ffff 0%, #00ffff 100%); /* Changed to accent color */
+    background: linear-gradient(180deg, #00ffff 0%, #00ffff 100%);
     border-radius: 2px;
     z-index: 0;
   }
 
-  /* Timeline container */
   #education .timeline {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem; /* Adjusted gap to match new size */
+    gap: 2.5rem;
     z-index: 1;
   }
-  .resume-wrapper {
-  position: relative;
-  width: 100%;
-  padding-bottom: 130%; /* Adjust as needed */
-  height: 0;
-  overflow: hidden;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.resume-wrapper iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 12px;
-}
-@media (max-width: 768px) {
-  .contact-form, 
-  .resume-wrapper,
-  .ecard,
-  .ccard {
-    width: 100% !important;
-  }
 
   .resume-wrapper {
-    padding-bottom: 160%;
+    position: relative;
+    width: 100%;
+    padding-bottom: 130%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
 
-  .footer-grid {
-    display: block;
-    text-align: center;
+  .resume-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
   }
 
-  #scrollTop {
-    bottom: 16px;
-    right: 16px;
+  @media (max-width: 768px) {
+    .contact-form,
+    .resume-wrapper,
+    .ecard,
+    .ccard {
+      width: 100% !important;
+    }
+
+    .resume-wrapper {
+      padding-bottom: 160%;
+    }
+
+    .footer-grid {
+      display: block;
+      text-align: center;
+    }
+
+    #scrollTop {
+      bottom: 16px;
+      right: 16px;
+    }
   }
-}
 
-
-  /* Each card */
   #education .card {
     position: relative;
     background: #111827;
-    padding: 1.5rem 2rem 1.5rem 4.5rem; /* Adjusted padding */
-    border-radius: 16px; /* Adjusted border radius */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6); /* Adjusted box shadow */
-    border-left: 6px solid #00ffff; /* Adjusted border width and color */
+    padding: 1.5rem 2rem 1.5rem 4.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    border-left: 6px solid #00ffff;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
   }
 
-  /* Circle inside card */
   #education .circle {
     position: absolute;
-    left: -22px; /* Adjusted position to match new border */
+    left: -22px;
     top: 50%;
     transform: translateY(-50%);
-    width: 28px; /* Adjusted size */
-    height: 28px; /* Adjusted size */
-    background: #00ffff; /* Changed to accent color */
+    width: 28px;
+    height: 28px;
+    background: #00ffff;
     border-radius: 50%;
-    box-shadow: 0 0 15px #00ffff; /* Adjusted box shadow */
-    border: 3px solid #0f172a; /* Adjusted border width */
+    box-shadow: 0 0 15px #00ffff;
+    border: 3px solid #0f172a;
     transition: box-shadow 0.3s ease;
   }
 
   #education .card:hover .circle {
-    box-shadow: 0 0 20px #00ffff; /* Adjusted box shadow on hover */
+    box-shadow: 0 0 20px #00ffff;
   }
 
-  /* Text inside card */
   #education .title {
     margin: 0;
-    font-weight: 700; /* Adjusted font weight */
-    font-size: 1.4rem; /* Adjusted font size */
-    color: #00ffff; /* Changed to accent color */
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #00ffff;
   }
 
   #education .subtitle {
-    margin: 6px 0 0; /* Adjusted margin */
-    font-weight: 500; /* Adjusted font weight */
+    margin: 6px 0 0;
+    font-weight: 500;
     color: #bbb;
-    font-size: 0.9rem; /* Adjusted font size */
+    font-size: 0.9rem;
   }
 
   #education .date {
-    margin: 8px 0 0; /* Adjusted margin */
-    font-weight: 600; /* Adjusted font weight */
-    color: #00ffff; /* Changed to accent color */
-    font-size: 0.85rem; /* Adjusted font size */
+    margin: 8px 0 0;
+    font-weight: 600;
+    color: #00ffff;
+    font-size: 0.85rem;
   }
 
-  /* Responsive */
   @media (max-width: 600px) {
     #education {
       max-width: 100%;
       padding: 0 1rem;
       margin: 2rem auto 4rem;
     }
+
     #education .timeline-line {
       left: 20px;
     }
+
     #education .card {
       padding-left: 3.5rem;
       border-left-width: 6px;
     }
+
     #education .circle {
       left: -22px;
       width: 24px;
@@ -407,7 +772,6 @@
 <section id="skills" class="fade-in">
   <h2 style="color:var(--accent);">Skills</h2>
 
-  <!-- Tech Skills -->
   <h3 style="color:var(--accent); margin-top:1.25rem;">💻 Tech Skills</h3>
   <ul class="skills-list" style="color:#a0e7ff;">
     <li><i class="devicon-python-plain colored"></i> Python</li>
@@ -421,22 +785,20 @@
     <li><i class="devicon-c-plain colored"></i> C</li>
   </ul>
 
-  <!-- Tools -->
   <h3 style="color:var(--accent); margin-top:1.25rem;">🛠️ Tools</h3>
   <ul class="skills-list" style="color:#a0e7ff;">
     <li><i class="devicon-vscode-plain colored"></i> VS Code</li>
     <li>
-  <img src="https://cdn.worldvectorlogo.com/logos/postman.svg" alt="Postman" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-  Postman
-</li>
-
+      <img src="https://cdn.worldvectorlogo.com/logos/postman.svg" alt="Postman"
+           style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
+      Postman
+    </li>
     <li><i class="devicon-pycharm-plain colored"></i> PyCharm</li>
     <li><i class="devicon-androidstudio-plain colored"></i> Android Studio</li>
     <li>🐍 IDLE (Python)</li>
     <li>🧾 ServiceNow</li>
   </ul>
 
-  <!-- Soft Skills -->
   <h3 style="color:var(--accent); margin-top:1.25rem;">🧠 Soft Skills</h3>
   <ul class="skills-list">
     <li style="background:#1e1e2f; color:#b6d8ea;">🤝 Teamwork</li>
@@ -447,9 +809,9 @@
   </ul>
 </section>
 
-
 <section id="projects" class="fade-in">
   <h2>Projects</h2>
+
   <div class="card-list">
 
     <div class="card project-card" data-tilt>
@@ -459,7 +821,6 @@
       </div>
       <div class="meta">
         <a class="btn" href="https://github.com/nivedithakummetha63/ServicenowProjects/tree/main/educational%20organisation" target="_blank" rel="noreferrer noopener">View on GitHub</a>
-        <a class="btn" href="#" target="_blank" rel="noreferrer noopener" style="margin-left: 0.6rem;">Live Demo</a>
       </div>
     </div>
 
@@ -470,7 +831,6 @@
       </div>
       <div class="meta">
         <a class="btn" href="https://github.com/nivedithakummetha63/python-projects/tree/main/virtual%20keyboard" target="_blank" rel="noreferrer noopener">View on GitHub</a>
-        <a class="btn" href="#" target="_blank" rel="noreferrer noopener" style="margin-left: 0.6rem;">Live Demo</a>
       </div>
     </div>
 
@@ -481,7 +841,7 @@
       </div>
       <div class="meta">
         <a class="btn" href="https://github.com/yourusername/roomieradar" target="_blank" rel="noreferrer noopener">View on GitHub</a>
-        <a class="btn" href="https://roomieradar-demo-link.com" target="_blank" rel="noreferrer noopener" style="margin-left: 0.6rem;">Live Demo</a>
+        <a class="btn" href="https://roomieradar-demo-link.com" target="_blank" rel="noreferrer noopener" style="margin-left:0.6rem;">Live Demo</a>
       </div>
     </div>
 
@@ -492,18 +852,7 @@
       </div>
       <div class="meta">
         <a class="btn" href="https://github.com/yourusername/portfolio" target="_blank" rel="noreferrer noopener">View on GitHub</a>
-        <a class="btn" href="https://your-portfolio-demo-link.com" target="_blank" rel="noreferrer noopener" style="margin-left: 0.6rem;">Live Demo</a>
-      </div>
-    </div>
-
-    <div class="card project-card" data-tilt>
-      <div>
-        <h3>WhatNext Vision Motors</h3>
-        <p>A Salesforce CRM implementation streamlining vehicle orders, stock management, dealer assignments, and customer experience with automation and Apex batch jobs.</p>
-      </div>
-      <div class="meta">
-        <a class="btn" href="https://your-demo-link.com" target="_blank" rel="noreferrer noopener">Live Demo</a>
-        <a class="btn" href="https://github.com/yourusername/vision-motors" target="_blank" rel="noreferrer noopener" style="margin-left: 0.6rem;">View on GitHub</a>
+        <a class="btn" href="https://your-portfolio-demo-link.com" target="_blank" rel="noreferrer noopener" style="margin-left:0.6rem;">Live Demo</a>
       </div>
     </div>
 
@@ -514,288 +863,325 @@
       </div>
       <div class="meta">
         <a class="btn" href="https://github.com/nivedithakummetha63/python-projects/tree/main/WIFI%20PASSWORD%20CHECKER" target="_blank" rel="noreferrer noopener">View on GitHub</a>
-        <a class="btn" href="#" target="_blank" rel="noreferrer noopener" style="margin-left: 0.6rem;">Live Demo</a>
       </div>
     </div>
 
   </div>
 </section>
 
-
 <section id="resume" class="fade-in">
   <h2>Resume</h2>
-  <div style="text-align:center; max-width: 700px; margin: auto;">
-   <div class="resume-wrapper">
-  <iframe 
-    src="https://drive.google.com/file/d/1snZuiPoxAyvRhnb1O_CgjQCsgxT3cZTW/preview" 
-    frameborder="0" 
-    allowfullscreen 
-    loading="lazy"
-  ></iframe>
-</div>
+
+  <div style="text-align:center; max-width:700px; margin:auto;">
+    <div class="resume-wrapper">
+      <iframe
+        src="https://drive.google.com/file/d/1snZuiPoxAyvRhnb1O_CgjQCsgxT3cZTW/preview"
+        frameborder="0"
+        allowfullscreen
+        loading="lazy">
+      </iframe>
+    </div>
 
     <div style="margin-top:1rem;">
-      <a class="btn" href="https://drive.google.com/uc?export=download&id=1snZuiPoxAyvRhnb1O_CgjQCsgxT3cZTW" target="_blank" rel="noreferrer noopener">Download Resume</a>
+      <a
+        class="btn"
+        href="https://drive.google.com/uc?export=download&id=1snZuiPoxAyvRhnb1O_CgjQCsgxT3cZTW"
+        target="_blank"
+        rel="noreferrer noopener">
+        Download Resume
+      </a>
     </div>
   </div>
 </section>
 
-<section id="extracurricular" class="fade-in" style="padding:2rem 1rem; font-family: 'Poppins', sans-serif;">
+
+
+
+
+<section id="extracurricular" class="fade-in" style="padding:2rem 1rem; font-family:'Poppins', sans-serif;">
   <h2>Extracurricular - Activities</h2>
-  <div style="display: flex; overflow-x: auto; gap: 1.8rem; padding-bottom: 1rem; scrollbar-width: thin; scrollbar-color: #00ffff #1a004f;"> <style>
-      #extracurricular::-webkit-scrollbar {
-        height: 8px;
-      }
-      #extracurricular::-webkit-scrollbar-track {
-        background: #1a004f;
-        border-radius: 10px;
-      }
-      #extracurricular::-webkit-scrollbar-thumb {
-        background: linear-gradient(90deg, #8e2de2, #00ffff); /* Changed scrollbar color */
-        border-radius: 10px;
-      }
-      #extracurricular::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(90deg, #00ffff, #bb9cd6); /* Changed scrollbar color */
-      }
-      .ecard {
-        flex: 0 0 280px;
-        background: rgba(12, 4, 41, 0.778);
-        border-radius: 20px;
-        backdrop-filter: blur(12px);
-        padding: 1.5rem;
-        text-align: center;
-        color: #d0eaff;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: default;
-      }
-      .ecard img {
-        width: 90px;
-        height: 90px;
-        object-fit: cover;
-        border-radius: 50%;
-        margin-bottom: 1rem;
-        box-shadow: 0 4px 20px rgba(0, 255, 255, 0.6); /* Changed box-shadow color */
-      }
-      .ecard h3 {
-        font-weight: 700;
-        font-size: 1.4rem;
-        margin-bottom: 0.4rem;
-        color: #00ffff; /* Changed to accent color */
-      }
-      .ecard p {
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #a0d8ff;
-      }
-    </style>
 
+  <style>
+    #extracurricular::-webkit-scrollbar {
+      height: 8px;
+    }
+    #extracurricular::-webkit-scrollbar-track {
+      background: #1a004f;
+      border-radius: 10px;
+    }
+    #extracurricular::-webkit-scrollbar-thumb {
+      background: linear-gradient(90deg, #8e2de2, #00ffff);
+      border-radius: 10px;
+    }
+    #extracurricular::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(90deg, #00ffff, #bb9cd6);
+    }
+    .ecard {
+      flex: 0 0 280px;
+      background: rgba(12, 4, 41, 0.778);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      padding: 1.5rem;
+      text-align: center;
+      color: #d0eaff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .ecard img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 255, 255, 0.6);
+    }
+    .ecard h3 {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+      color: #00ffff;
+    }
+    .ecard p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #a0d8ff;
+    }
+  </style>
 
-      <div class="ecard">
-      <img src=  "https://i.ibb.co/nNZn5PFL/IMG-20240323-144345-1.jpg" alt="English Language Club Member" />
+  <div style="display:flex; overflow-x:auto; gap:1.8rem; padding-bottom:1rem; scrollbar-width:thin; scrollbar-color:#00ffff #1a004f;">
+
+    <div class="ecard">
+      <img src="https://i.ibb.co/nNZn5PFL/IMG-20240323-144345-1.jpg" alt="English Language Club Member">
       <h3>English Language Club Member</h3>
       <p>Enhancing communication and language skills through engaging activities and workshops.</p>
     </div>
 
-
     <div class="ecard">
-      <img src="https://i.ibb.co/3mc2QY1m/sports.png" alt="Sports Enthusiast" />
+      <img src="https://i.ibb.co/3mc2QY1m/sports.png" alt="Sports Enthusiast">
       <h3>Sports Enthusiast</h3>
       <p>Active participation in college-level sports, promoting fitness and team spirit.</p>
     </div>
+
     <div class="ecard">
-      <img src="https://i.ibb.co/QF16LZ8P/abhigyaan-path.png"  alt="Volunteer - Abhigyaan Achievers Day" />
+      <img src="https://i.ibb.co/QF16LZ8P/abhigyaan-path.png" alt="Volunteer - Abhigyaan Achievers Day">
       <h3>Volunteer - Abhigyaan</h3>
       <p>Organizing and supporting Achievers Day event to uplift fellow students and celebrate success.</p>
     </div>
 
     <div class="ecard">
-      <img src="https://i.ibb.co/JWNdn68s/shutterbugs.png" alt="Shutterbugs Club Member" />
+      <img src="https://i.ibb.co/JWNdn68s/shutterbugs.png" alt="Shutterbugs Club Member">
       <h3>Shutterbugs Club Member</h3>
       <p>Capturing stories through the lens and fostering creativity in photography.</p>
     </div>
 
-
-
     <div class="ecard">
-  <img src="https://i.ibb.co/gMVYzPWX/Screenshot-2025-08-10-114139.png" alt="Innovation" />
-  <h3>Innovation</h3>
-  <p>Exploring different genres and occasionally jamming with friends to unwind.</p>
-</div>
+      <img src="https://i.ibb.co/gMVYzPWX/Screenshot-2025-08-10-114139.png" alt="Innovation">
+      <h3>Innovation</h3>
+      <p>Exploring different genres and occasionally jamming with friends to unwind.</p>
+    </div>
 
   </div>
 </section>
 
-
-
-
-<section id="certifications" style="padding:2rem 1rem; font-family: 'Poppins', sans-serif; margin:auto;">
-  <h2 style="text-align:center; font-weight:900; font-size:1.5rem; color: #00ffff; margin-bottom:2rem;">
+<section id="certifications" style="padding:2rem 1rem; font-family:'Poppins', sans-serif; margin:auto;">
+  <h2 style="text-align:center; font-weight:900; font-size:1.5rem; color:#00ffff; margin-bottom:2rem;">
     Certifications
   </h2>
 
-  <div style="display: flex; overflow-x: auto; gap: 1.8rem; padding-bottom: 1rem; scrollbar-width: thin; scrollbar-color: #00ffff #1a004f;">
-    <style>
-      #certifications::-webkit-scrollbar {
-        height: 8px;
-      }
-      #certifications::-webkit-scrollbar-track {
-        background: #1a004f;
-        border-radius: 10px;
-      }
-      #certifications::-webkit-scrollbar-thumb {
-        background: linear-gradient(90deg, #8e2de2, #00ffff);
-        border-radius: 10px;
-      }
-      #certifications::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(90deg, #00ffff, #bb9cd6);
-      }
-      .ccard {
-        flex: 0 0 280px;
-        background: rgba(12, 4, 41, 0.85);
-        border-radius: 20px;
-        backdrop-filter: blur(12px);
-        padding: 1.5rem 1.8rem 2rem 1.8rem;
-        text-align: center;
-        color: #d0eaff;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        cursor: default;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      .ccard img {
-        width: 120px;
-        height: 120px;
-        align-self: center;
-        object-fit: contain;
-        border-radius: 16px;
-        margin-bottom: 1rem;
+  <style>
+    #certifications::-webkit-scrollbar {
+      height: 8px;
+    }
+    #certifications::-webkit-scrollbar-track {
+      background: #1a004f;
+      border-radius: 10px;
+    }
+    #certifications::-webkit-scrollbar-thumb {
+      background: linear-gradient(90deg, #8e2de2, #00ffff);
+      border-radius: 10px;
+    }
+    #certifications::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(90deg, #00ffff, #bb9cd6);
+    }
+    .ccard {
+      flex: 0 0 280px;
+      background: rgba(12, 4, 41, 0.85);
+      border-radius: 20px;
+      backdrop-filter: blur(12px);
+      padding: 1.5rem 1.8rem 2rem;
+      text-align: center;
+      color: #d0eaff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .ccard img {
+      width: 120px;
+      height: 120px;
+      align-self: center;
+      object-fit: contain;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+    }
+    .ccard h3 {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 0.6rem;
+      color: #00ffff;
+    }
+    .ccard p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #a0d8ff;
+      margin-bottom: 1.5rem;
+    }
+    .btn-view {
+      background: linear-gradient(90deg, #00ffff, #8e2de2);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      color: #111;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 10px #00ffffaa;
+    }
+    .btn-view:hover {
+      background: linear-gradient(90deg, #8e2de2, #00ffff);
+      box-shadow: 0 0 20px #00ffffee;
+    }
+  </style>
 
-      }
-      .ccard h3 {
-        font-weight: 700;
-        font-size: 1.3rem;
-        margin-bottom: 0.6rem;
-        color: #00ffff;
-      }
-      .ccard p {
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #a0d8ff;
-        margin-bottom: 1.5rem;
-      }
-      .btn-view {
-        background: linear-gradient(90deg, #00ffff, #8e2de2);
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 30px;
-        color: #111;
-        font-weight: 700;
-        cursor: pointer;
-        transition: background 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        box-shadow: 0 0 10px #00ffffaa;
-      }
-      .btn-view:hover {
-        background: linear-gradient(90deg, #8e2de2, #00ffff);
-        box-shadow: 0 0 20px #00ffffee;
-      }
-    </style>
+  <div style="display:flex; overflow-x:auto; gap:1.8rem; padding-bottom:1rem; scrollbar-width:thin; scrollbar-color:#00ffff #1a004f;">
 
     <div class="ccard">
-      <img src="https://pbs.twimg.com/profile_images/1919685185035014144/YTnrFPhe_400x400.png" alt="Certified ServiceNow Admin" />
-      <h3>Certified System Administrator(CSA)</h3>
+      <img src="https://pbs.twimg.com/profile_images/1919685185035014144/YTnrFPhe_400x400.png" alt="Certified ServiceNow Admin">
+      <h3>Certified System Administrator (CSA)</h3>
       <p>Mastered ServiceNow platform basics and admin skills.</p>
-      <button class="btn-view" onclick="window.open('https://drive.google.com/file/d/1gj2WXUF_PbyPWsNxOXAv9WBvWoxLRQQS/view?usp=sharing', '_blank')">View Certificate</button>
+      <button class="btn-view" onclick="window.open('https://drive.google.com/file/d/1gj2WXUF_PbyPWsNxOXAv9WBvWoxLRQQS/view?usp=sharing','_blank')">View Certificate</button>
     </div>
 
     <div class="ccard">
-      <img src="https://pbs.twimg.com/profile_images/1919685185035014144/YTnrFPhe_400x400.png" alt="Certified Associate Developer" />
+      <img src="https://pbs.twimg.com/profile_images/1919685185035014144/YTnrFPhe_400x400.png" alt="Certified Associate Developer">
       <h3>Certified Application Developer (CAD)</h3>
       <p>Strong fundamentals in software development concepts.</p>
-      <button class="btn-view" onclick="window.open('https://drive.google.com/file/d/1GSA5npDE7dfLXbLehnB3RIe8BUGye8Wt/view?usp=sharing', '_blank')">View Certificate</button>
+      <button class="btn-view" onclick="window.open('https://drive.google.com/file/d/1GSA5npDE7dfLXbLehnB3RIe8BUGye8Wt/view?usp=sharing','_blank')">View Certificate</button>
     </div>
 
     <div class="ccard">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/1280px-Salesforce.com_logo.svg.png" alt="Salesforce Global Certificate" />
-      <h3>Salesforce  Agentforce Global Certificate</h3>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/1280px-Salesforce.com_logo.svg.png" alt="Salesforce Global Certificate">
+      <h3>Salesforce Agentforce Global Certificate</h3>
       <p>Recognized for excellence in global Salesforce solutions.</p>
-      <button class="btn-view" onclick="window.open('https://drive.google.com/file/d/1eccECLgEanJ6hEWM_HKZd4sU3xeF2C0g/view?usp=sharing', '_blank')">View Certificate</button>
+      <button class="btn-view" onclick="window.open('https://drive.google.com/file/d/1eccECLgEanJ6hEWM_HKZd4sU3xeF2C0g/view?usp=sharing','_blank')">View Certificate</button>
     </div>
 
     <div class="ccard">
-      <img src="https://i.pinimg.com/736x/fa/e8/62/fae862fff4f6100d000a1c01c4030db0.jpg" alt="Java Full Stack Training" />
+      <img src="https://i.pinimg.com/736x/fa/e8/62/fae862fff4f6100d000a1c01c4030db0.jpg" alt="Java Full Stack Training">
       <h3>National Level Java Full Stack Training</h3>
       <p>Completed intensive training on Java, React JS & AI integration.</p>
-      <button class="btn-view" onclick="window.open('https://drive.google.com/file/d/1vTxrNndE95yUU0D8AjS8DzhuU_aZ8BGa/view?usp=sharing', '_blank')">View Certificate</button>
+      <button class="btn-view" onclick="window.open('https://drive.google.com/file/d/1vTxrNndE95yUU0D8AjS8DzhuU_aZ8BGa/view?usp=sharing','_blank')">View Certificate</button>
     </div>
 
     <div class="ccard">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/1280px-Salesforce.com_logo.svg.png" alt="Salesforce AgentBlazer" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Salesforce.com_logo.svg/1280px-Salesforce.com_logo.svg.png" alt="Salesforce AgentBlazer">
       <h3>Salesforce Developer with AgentBlazer</h3>
       <p>Excelled in 8-week Salesforce internship program.</p>
-      <button class="btn-view" onclick="window.open('https://drive.google.com/file/d/15W5Ja_NPUsqa7ZNlxQV5kfDzEExyLDgY/view?usp=sharing', '_blank')">View Certificate</button>
+      <button class="btn-view" onclick="window.open('https://drive.google.com/file/d/15W5Ja_NPUsqa7ZNlxQV5kfDzEExyLDgY/view?usp=sharing','_blank')">View Certificate</button>
     </div>
 
     <div class="ccard">
-      <img src="https://media.licdn.com/dms/image/v2/D4E12AQGUj5p0p_iVzg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1710642350647?e=2147483647&v=beta&t=iuVzdE7wQrLcurtk_NsMU-aMRHnqUDqaCOUMOf4J-Zc" alt="Smart Internz" />
+      <img src="https://media.licdn.com/dms/image/v2/D4E12AQGUj5p0p_iVzg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1710642350647?e=2147483647&v=beta&t=iuVzdE7wQrLcurtk_NsMU-aMRHnqUDqaCOUMOf4J-Zc" alt="Smart Internz">
       <h3>Smart Internz Program Completion</h3>
       <p>Successfully completed the APSCHE short-term virtual internship.</p>
-      <button class="btn-view" onclick="window.open('https://drive.google.com/file/d/180cVm1UfF1NflmHa2YkNlFUfPtBEs311/view?usp=sharing', '_blank')">View Certificate</button>
+      <button class="btn-view" onclick="window.open('https://drive.google.com/file/d/180cVm1UfF1NflmHa2YkNlFUfPtBEs311/view?usp=sharing','_blank')">View Certificate</button>
     </div>
+
   </div>
 </section>
 
-
-
-
-<section id="contact" class="fade-in" style="padding: 2rem 1rem;">
+<section id="contact" class="fade-in" style="padding:2rem 1rem;">
   <h2>Contact</h2>
-  <div style="
-    display: flex;
-    justify-content: center;
-    ">
-    <form class="contact-form" action="https://formspree.io/f/xnndwogj" method="POST" style="
-      border: 2px solid var(--accent);
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-      max-width: 480px;
-      width: 100%;
-      box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1);
-      background: rgba(0, 255, 255, 0.05);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    ">
-      <input name="name" type="text" placeholder="Your Name" required style="padding: 0.6rem 1rem; border-radius: 6px; border: 1.5px solid var(--accent); font-size: 1rem;" />
-      <input name="_replyto" type="email" placeholder="Your Email" required style="padding: 0.6rem 1rem; border-radius: 6px; border: 1.5px solid var(--accent); font-size: 1rem;" />
-      <textarea name="message" rows="6" placeholder="Your Message" required style="padding: 0.6rem 1rem; border-radius: 6px; border: 1.5px solid var(--accent); font-size: 1rem; resize: vertical;"></textarea>
-      <button type="submit" style="
-        background-color: var(--accent);
-        color: #fff;
-        border: none;
-        padding: 0.8rem 1.2rem;
-        border-radius: 8px;
-        font-weight: 600;
-        font-size: 1.05rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-      " onmouseover="this.style.backgroundColor='#00ffff'" onmouseout="this.style.backgroundColor='var(--accent)'">
+
+  <div style="display:flex; justify-content:center;">
+    <form
+      class="contact-form"
+      action="https://formspree.io/f/xnndwogj"
+      method="POST"
+      style="
+        border:2px solid var(--accent);
+        border-radius:12px;
+        padding:1.5rem 2rem;
+        max-width:480px;
+        width:100%;
+        box-shadow:0 4px 12px rgba(0,255,255,0.1);
+        background:rgba(0,255,255,0.05);
+        display:flex;
+        flex-direction:column;
+        gap:1rem;
+      "
+    >
+      <input
+        name="name"
+        type="text"
+        placeholder="Your Name"
+        required
+        style="padding:0.6rem 1rem; border-radius:6px; border:1.5px solid var(--accent); font-size:1rem;"
+      />
+
+      <input
+        name="_replyto"
+        type="email"
+        placeholder="Your Email"
+        required
+        style="padding:0.6rem 1rem; border-radius:6px; border:1.5px solid var(--accent); font-size:1rem;"
+      />
+
+      <textarea
+        name="message"
+        rows="6"
+        placeholder="Your Message"
+        required
+        style="padding:0.6rem 1rem; border-radius:6px; border:1.5px solid var(--accent); font-size:1rem; resize:vertical;"
+      ></textarea>
+
+      <button
+        type="submit"
+        style="
+          background-color:var(--accent);
+          color:#111;
+          border:none;
+          padding:0.8rem 1.2rem;
+          border-radius:8px;
+          font-weight:600;
+          font-size:1.05rem;
+          cursor:pointer;
+          transition:background-color 0.3s ease, box-shadow 0.3s ease;
+        "
+        onmouseover="this.style.boxShadow='0 0 12px rgba(0,255,255,0.7)'"
+        onmouseout="this.style.boxShadow='none'"
+      >
         Send Message
       </button>
     </form>
   </div>
 </section>
 
-
 <footer>
   <div class="footer-grid">
     <div>
-      <h2 style="color:var(--accent);margin:0">KN.</h2> <p class="muted" style="max-width:320px">A passionate Computer Science and Engineering professional dedicated to creating exceptional digital experiences through innovative technology solutions.</p>
+      <h2 style="color:var(--accent);margin:0">KN.</h2>
+      <p class="muted" style="max-width:320px">
+        A passionate Computer Science and Engineering professional dedicated to creating exceptional digital experiences through innovative technology solutions.
+      </p>
     </div>
+
     <div>
-      <h3 style="color:var(--accent);margin-bottom:.6rem">Quick Links</h3> <nav style="display:flex;flex-direction:column;gap:.4rem">
+      <h3 style="color:var(--accent);margin-bottom:.6rem">Quick Links</h3>
+      <nav style="display:flex;flex-direction:column;gap:.4rem">
         <a href="#home" class="muted">Home</a>
         <a href="#about" class="muted">About Me</a>
         <a href="#skills" class="muted">Skills</a>
@@ -805,13 +1191,28 @@
         <a href="#contact" class="muted">Contact</a>
       </nav>
     </div>
+
     <div>
-      <h3 style="color:var(--accent);margin-bottom:.6rem">Get in Touch</h3> <p class="muted">Email: <a href="mailto:nivedithakummetha@gmail.com" class="muted">nivedithakummetha@gmail.com</a></p>
-        <p class="muted">LinkedIn: <a href="https://www.linkedin.com/in/niveditha563" target="_blank" rel="noreferrer noopener" class="muted">niveditha563</a></p>
-      <p class="muted">Location: Anantapur,AP</p>
+      <h3 style="color:var(--accent);margin-bottom:.6rem">Get in Touch</h3>
+      <p class="muted">
+        Email:
+        <a href="mailto:nivedithakummetha@gmail.com" class="muted">
+          nivedithakummetha@gmail.com
+        </a>
+      </p>
+      <p class="muted">
+        LinkedIn:
+        <a href="https://www.linkedin.com/in/niveditha563" target="_blank" rel="noreferrer noopener" class="muted">
+          niveditha563
+        </a>
+      </p>
+      <p class="muted">Location: Anantapur, AP</p>
     </div>
   </div>
-  <div style="border-top:1px solid rgba(255,255,255,0.04);margin-top:28px;padding-top:18px;text-align:center;color:#9fb0dd;font-size:.95rem">© 2025 Kummetha Niveditha. All Rights Reserved.</span></div>
+
+  <div style="border-top:1px solid rgba(255,255,255,0.04);margin-top:28px;padding-top:18px;text-align:center;color:#9fb0dd;font-size:.95rem">
+    © 2025 Kummetha Niveditha. All Rights Reserved.
+  </div>
 </footer>
 
 <button id="scrollTop" aria-label="scroll to top">⬆</button>
@@ -822,7 +1223,6 @@
     document.querySelector('.hamburger').classList.toggle('active');
   }
 
-  // Close menu on nav link click (mobile)
   document.querySelectorAll('#nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       document.getElementById('nav-links').classList.remove('active');
@@ -830,8 +1230,7 @@
     });
   });
 
-  // Fade-in animation on scroll
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('show');
@@ -841,7 +1240,6 @@
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // Scroll-to-top button
   const scrollBtn = document.getElementById('scrollTop');
 
   window.addEventListener('scroll', () => {
@@ -852,7 +1250,6 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  // Project card 3D hover effect
   document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const r = card.getBoundingClientRect();
@@ -868,7 +1265,3 @@
     });
   });
 </script>
-
-</body>
-
-</html>
