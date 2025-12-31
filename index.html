@@ -758,6 +758,17 @@
     color: #bbb;
     font-size: 0.9rem;
   }
+  .typing-text {
+  max-width: 100%;
+  text-align: center;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+  color: #ffffff;
+  white-space: normal;
+  overflow-wrap: break-word;
+  margin: 0.8rem auto 0;
+}
+
 
   #education .date {
     margin: 8px 0 0;
@@ -1335,32 +1346,20 @@ document.querySelectorAll('.project-card').forEach(card => {
     card.style.transform = 'none';
     card.style.boxShadow = 'none';
   });
-});
-const typingTexts = [
-  "CS Undergraduate | ",
-  "ServiceNow & Salesforce Certified | ",
-  "Full Stack Developer | ",
-  "Open to Opportunities"
+});const typingTexts = [
+  "CS Undergraduate | ServiceNow & Salesforce Certified | Full Stack Developer  | Open to Opportunities"
 ];
 
 const typingElement = document.getElementById("typing-text");
-let textIndex = 0;
 let charIndex = 0;
 
 function typeText() {
-  if (textIndex >= typingTexts.length) return;
-  const text = typingTexts[textIndex] ;
-  if (charIndex < text.length) {
-    typingElement.textContent += text.charAt(charIndex);
+  if (charIndex < typingTexts[0].length) {
+    typingElement.textContent += typingTexts[0].charAt(charIndex);
     charIndex++;
-    setTimeout(typeText, 70);
-  } else {
-    textIndex++;
-    charIndex = 0;
-    setTimeout(typeText, 300);
+    setTimeout(typeText, 40);
   }
 }
 
 document.addEventListener("DOMContentLoaded", typeText);
 </script>
-
