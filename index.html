@@ -477,7 +477,10 @@
   />
   <h1 style="margin-top:1rem;color:var(--accent)">Kummetha Niveditha</h1>
   
-<p id="typing-text" class="typing-text"></p>
+<p id="typing-text" class="typing-text">
+  <span id="typing-inner"></span>
+</p>
+
 
   <div class="social-row" style="justify-content:center; margin-top:1rem;">
     <a
@@ -751,14 +754,25 @@
     font-size: 0.9rem;
   }
   .typing-text {
+  width: 100%;
   max-width: 100%;
+  padding: 0 1rem;
+  margin-top: 0.8rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   text-align: center;
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-  font-weight: 600;
+  font-size: clamp(0.85rem, 2.8vw, 1.05rem);
+  font-weight: 500;
   color: #ffffff;
+
   white-space: normal;
-  overflow-wrap: break-word;
-  margin: 0.8rem auto 0;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+
+  box-sizing: border-box;
 }
 
 
@@ -1322,6 +1336,7 @@ const scrollBtn = document.getElementById('scrollTop');
 window.addEventListener('scroll', () => {
   scrollBtn.style.display = window.scrollY > 350 ? 'block' : 'none';
 });
+
 scrollBtn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
@@ -1334,24 +1349,28 @@ document.querySelectorAll('.project-card').forEach(card => {
     card.style.transform = `perspective(700px) rotateX(${y}deg) rotateY(${x}deg) translateZ(8px)`;
     card.style.boxShadow = '0 18px 40px rgba(0,255,255,0.06)';
   });
+
   card.addEventListener('mouseleave', () => {
     card.style.transform = 'none';
     card.style.boxShadow = 'none';
   });
-});const typingTexts = [
-  "CS Undergraduate | ServiceNow & Salesforce Certified | Full Stack Developer  | Open to Opportunities"
-];
+});
 
-const typingElement = document.getElementById("typing-text");
-let charIndex = 0;
+/* Typing Text – Responsive & Stable */
+const typingText =
+  "CS Undergraduate | ServiceNow & Salesforce Certified | Full Stack Developer | Open to Opportunities";
 
-function typeText() {
-  if (charIndex < typingTexts[0].length) {
-    typingElement.textContent += typingTexts[0].charAt(charIndex);
-    charIndex++;
-    setTimeout(typeText, 40);
+const typingTarget = document.getElementById("typing-inner");
+let index = 0;
+
+function startTyping() {
+  if (index < typingText.length) {
+    typingTarget.textContent += typingText.charAt(index);
+    index++;
+    setTimeout(startTyping, 40);
   }
 }
 
-document.addEventListener("DOMContentLoaded", typeText);
+document.addEventListener("DOMContentLoaded", startTyping);
 </script>
+
