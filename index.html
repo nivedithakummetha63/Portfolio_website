@@ -383,6 +383,21 @@
         display: inline-flex;
       }
     }
+    #about {
+  overflow: hidden;
+}
+
+.cp-grid {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .cp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
     .fade-in {
       opacity: 0;
